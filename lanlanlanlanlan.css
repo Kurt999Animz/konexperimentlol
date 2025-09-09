@@ -1,0 +1,603 @@
+:root {
+    --bpm: 180;
+    --1beat: calc(60s / var(--bpm));
+    --2beat: calc(120s/ var(--bpm));
+    --4beat: calc(240s/ var(--bpm));
+    --8beat: calc(480s/ var(--bpm));
+    --12beat: calc(720s/ var(--bpm));
+    --16beat: calc(960s/ var(--bpm));
+    --20beat: calc(1200s/ var(--bpm));
+    --24beat: calc(1440s/ var(--bpm));
+    --28beat: calc(1680s/ var(--bpm));
+    --32beat: calc(1920s/ var(--bpm));
+    --36beat: calc(2160s/ var(--bpm));
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: black;
+    user-select: none;
+    font-size: 2vw;
+    font-family: cookie;
+}
+
+@font-face{
+    font-family: "cookie";
+    src: url('Chococooky.ttf') format("truetype")
+}
+
+.tv {
+    width: 100vw;
+    height: 56.25vw;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: solid 2px white;
+    overflow: hidden;
+    position:relative;
+    animation-play-state: paused;
+    pointer-events: ;
+}
+#start-screen {
+  position: absolute;
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  z-index: 11;
+}
+
+.start-button {
+  display: inline-block;
+  border:solid 2px white;
+  color: white;
+    padding: 0.7% 1%;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+        transition:0.2s;
+}
+.start-button:hover{
+    transform:translateY(-10%);
+
+}
+.tsikbaks:checked ~ #start-screen .start-button{
+    border-color:yellow;
+    color:yellow;
+    animation: wata 1s linear forwards;
+}
+
+@keyframes wata{
+    0%{scale:1.2};
+    50%{scale: 1.05}
+    100%{scale:1}
+}
+.tsikbaks:checked + #start-screen {
+  pointer-events: none;
+  animation: babai 1s forwards;
+}
+@keyframes babai{
+  0%{
+    opacity: 100%
+  }
+  100%{
+    opacity: 0%
+  }
+}
+.tsikbaks {
+  display: none;
+}
+
+  .kon{
+    position: absolute;
+    display:flex;
+    flex-direction:row;
+    wrap:wrap;
+      align-items: center;
+      justify-content: center;
+      height: 70%;
+      width: 70%;
+      scale:0.5;
+      animation: yes var(--4beat) steps(6) forwards var(--32beat), bai var(--4beat) forwards calc(0.3s + var(--32beat));
+      animation-play-state: paused;
+  }
+.kon div img{
+    width:100%;
+    height: auto;
+}
+.k{
+    transform: translateY(500%);
+    animation: pataas var(--4beat) ease-in-out forwards var(--8beat);
+    animation-play-state: paused;
+}
+.hyphen{
+    transform: translateY(500%);
+    animation: pababa var(--4beat) ease-in-out forwards var(--16beat);
+    animation-play-state: paused;
+}
+.on{
+    transform: translateX(500%);
+    animation: pagilid var(--4beat) ease-in-out forwards var(--24beat);
+    animation-play-state: paused;
+}
+@keyframes pataas{
+    0%{
+        transform: translateY(120%)
+    }
+    45%{ transform: translateY(-60px)}
+        75%{ transform: translateY(20px)}
+            100%{ transform: translateY(0px)}
+}
+@keyframes pababa{
+    0%{
+        transform: translateY(-120%)
+    }
+    45%{ transform: translateY(60px)}
+        75%{ transform: translateY(-20px)}
+            100%{ transform: translateY(0px)}
+}
+@keyframes pagilid{
+    0%{
+        transform: translateX(120%)
+    }
+    45%{ transform: translateX(-60px)}
+        75%{ transform: translateX(10px)}
+            100%{ transform: translateX(0px)}
+}
+@keyframes yes{
+    0% {}
+    10% {}
+    20%{transform: rotate(10deg)}
+    30%{transform: rotate(20deg)}
+    40%{transform: rotate(40deg)}
+    50%{transform: rotate(80deg)}
+    60%{transform: rotate(160deg)}
+    70%{transform: rotate(320deg) opacity:1}
+    80%{transform: rotate(640deg);opacity:0.5}
+    90%{transform: rotate(1280deg);opacity:0.2}
+    100%{transform: rotate(2560deg);opacity:0}
+}
+@keyframes bai{
+    0%{}
+    100%{scale: 0.3}
+}
+.s p{
+  color:white;
+  font-size: 3em;
+}
+.s{
+    pointer-events: none;
+    
+}
+.s > img{
+    width:100%;
+    height:auto;
+    
+}
+.s1 {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    animation: wowimhere var(--4beat) var(--4beat);
+    animation-play-state: paused;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.s2 {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    animation: wowimhere var(--4beat) var(--8beat);
+    animation-play-state: paused;
+    z-index: 10;
+}
+.s3 {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    animation: wowimhere var(--4beat) var(--12beat);
+    animation-play-state: paused;
+    z-index: 10;
+}
+.s4 {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    animation: wowimhere var(--4beat) var(--16beat);
+    animation-play-state: paused;
+    z-index: 10;
+}
+.s5 {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    animation: wowimhere var(--4beat) var(--20beat);
+    animation-play-state: paused;
+    z-index: 10;
+}
+.s6 {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    animation: wowimhere var(--4beat) var(--24beat);
+    animation-play-state: paused;
+    z-index: 10;
+}
+.s7 {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    animation: wowimhere var(--4beat) var(--28beat);
+    animation-play-state: paused;
+    z-index: 10;
+}
+.s8 {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    animation: wowimhere var(--4beat) var(--32beat);
+    animation-play-state: paused;
+    z-index: 10;
+}
+
+@keyframes wowimheere {
+    0%{opacity: 1;}
+    100%{opacity:1; pointer-events: auto}
+}
+@keyframes wowimhere{
+    0%{opacity:1}
+    100%{opacity:1}
+}
+
+.content {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; 
+    height: 100%;
+    opacity: 0%;
+    animation: wowimheere 1s forwards var(--36beat);
+    animation-play-state: paused, paused;
+    overflow: hidden;
+    position: relative;
+    pointer-events: none;
+    background-image:url('images/smoke.gif');
+    background-size: 100%;
+}
+.drk {
+  position: absolute;
+  width: 150%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+}
+.bgboom{
+    animation: bgboom var(--2beat) infinite var(--36beat);
+    animation-play-state: paused;
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index: 1;
+            background: linear-gradient(rgba(0,0,0,0),rgba(50, 170, 250, 0.2), rgba(25, 200, 255, 0.5));
+
+}
+@keyframes bgboom {
+    0%{
+    transform: translateY(0px);}
+    90%,100%{
+        transform: translateY(300px)
+    }
+}
+
+.breh{
+    width:100%;
+    height: 10%;
+    background: black;
+    border: solid 2px white;
+    z-index: 2;
+    animation: boom var(--1beat) linear infinite;
+    animation-play-state: paused
+}
+@keyframes boom{
+    0%{scale:1.3}
+    60%,100%{scale:1}
+}
+.maincont{
+    height:90%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    background: url('images/bglol.png') no-repeat center center;
+    background-size: 100%;
+    background-position: 0px center;
+    z-index:2;
+}
+.maincont:hover .testbox .lol{
+    opacity: 0.5;
+    transform: translateY(30%);
+    scale: 0.8;
+}
+.maincont:hover .testbox {
+    backdrop-filter:blur(2px);
+}
+
+#lrcsbruh{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    align-items: center;
+    bottom: 2%;
+    left: 50%;
+    z-index: 11;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap;
+    background: rgba(0,0,0,0.5);
+    color:yellow;
+    border-radius: 5px;
+    padding: 1%;
+    border: solid 1px white;
+    font-style: oblique;
+    max-height: 10px;
+    opacity:0;
+}
+
+.soundbreh {
+    position:absolute;
+    top: 0;
+    right: 0;
+    border: white 2px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-size: contain;
+    background-image: url('mute/unmuted.gif');
+    aspect-ratio:1/1;
+    height: 10%;
+    background-color: transparent;
+    z-index: 3;
+}
+#lrcsbro{
+        white-space: nowrap;
+    display: inline
+
+}
+.testbox{ /* for tests   (nvm i ended up actually using these)*/
+    display: flex;
+    min-width:35%;
+    height: 100%;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    backdrop-filter: blur(3px);
+    transition:0.5s;
+}
+.testbox:hover .lol{
+    scale: 1.2 !important;
+    transform: translateY(0px) !important;
+    opacity: 1 !important;
+
+}
+
+.lol{
+    min-width: 80%;
+        max-width: 80%;
+    aspect-ratio:1/1;
+    border: solid 2px white;
+    opacity: 1;
+    transition: 0.5s ease;
+    border-radius: 10%;
+        backdrop-filter:blur(3px);
+    overflow:hidden;
+}
+.lol img{
+    width:100%;
+    height:100%
+}
+.cd{
+    animation: rotatelol 3s linear infinite, boomsn var(--2beat) infinite;
+    animation-play-state:paused;
+    height: 20%;
+    aspect-ratio:1/1;
+    background-image: url('images/cd.jpg');
+    position:absolute;
+    background-size: cover;
+    bottom:2%;
+    left:2%;
+    border-radius: 50%;
+    z-index: 3;
+    border: solid 2px white;
+}
+@keyframes rotatelol{
+    0%{transform: rotate(0deg)}
+   100%{ transform: rotate(360deg);}
+}
+@keyframes boomsn{
+    0%,100%{scale:1;}
+    49.99%{scale: 1}
+    50%{scale:1.1}
+}
+.cd:hover ~ .songname{
+    width:200px;
+    height:100px;
+    opacity: 1;
+    transform: rotate(0deg);
+}
+.cd:hover ~ .songname p{
+    opacity:1
+}
+.cd:not(:hover) ~ .songname p{
+    transition:0.2s 0s;
+}
+
+.songname{
+    transform: rotate(45deg);
+    flex-direction: column;
+    width:0px;
+    color:white;
+    height: 0px;
+    position:absolute;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    bottom:80px;
+    left: 80px;
+    z-index: 4;
+    border: inset 2px white;
+    background:  radial-gradient(lightslategray, black);
+    border-radius: 30px;
+    transition: 0.5s;
+    opacity: 0;
+    pointer-events: none;
+    padding: 2%;
+}
+.songname p{
+    opacity:0;
+    transition: 0.3s 0.5s;
+}
+span{
+    color: Yellow;
+    font-size: 150%
+}
+.uihirasawa{
+    width:30%;
+    height:60%;
+    position:absolute;
+    animation:shake 2s linear infinite;
+    bottom:-7.5%;
+    right:0;
+}
+.uihirasawa img{
+    filter: drop-shadow(1px 1px 0px white) drop-shadow(-1px -1px 0px white);
+    width:100%;
+    height:auto;
+}
+.lolno{
+    height:34%;
+    aspect-ratio:1/1;
+    background-image: url('images/HAHAHGOTOHELL.png');
+    background-size:cover;
+    position:absolute;
+    bottom:20%;
+    right:25%;
+    transform:rotate(-20deg) translateY(40%);
+    opacity:0;
+    transition:0.5s ease;
+}
+.uihirasawa:hover ~ .lolno{
+    transform: rotate(0deg) translateY(0%);
+    opacity: 1
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(-1deg); }
+  100% { transform: translate(1px, 1px) rotate(0deg); }
+}
+
+button {
+  -webkit-tap-highlight-color: transparent; /* Removes the blue highlight in mobile browsers */
+  outline: none;
+}
+
+.tren{
+    position:absolute;
+    bottom:3%;
+    left:1;
+    width:40%;
+    height:40%;;
+    background-image: url('images/ianimatedthislol.gif');
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: chuchu var(--4beat) linear var(--24beat);
+    animation-play-state: paused;
+}
+
+@keyframes chuchu{
+    0%{transform:translateX(300px)}
+    100%{transform:translateX(-300px)}
+}
+#rload{
+    position:absolute;
+    top: 0;
+    left: 0;
+    border: white 2px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-size: contain;
+    background-image: url('images/reload.gif');
+    aspect-ratio:1/1;
+    height: 10%;
+    background-color: transparent;
+    z-index: 3;
+}
+
+summary[role="button"], button, .footer__blocks-wrapper .footer-block, a, label, .start-button{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
